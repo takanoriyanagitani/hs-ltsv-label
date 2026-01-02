@@ -1,0 +1,32 @@
+cabal-version:      3.14
+name:               hs-ltsv-label
+version:            0.1.0.0
+license:            Apache-2.0
+license-file:       LICENSE
+author:             yanagitani
+maintainer:         takanori.yanagitani@gmail.com
+category:           Codec
+build-type:         Simple
+extra-doc-files:    CHANGELOG.md
+
+common warnings
+    ghc-options: -Wall -Werror
+
+library
+    import:           warnings
+    exposed-modules:  Ltsv.Label
+    other-modules:    Ltsv.Label.Types, Ltsv.Label.Internal
+    build-depends:    base ^>=4.17.2.1, containers
+    hs-source-dirs:   src
+    default-language: Haskell2010
+
+test-suite hs-ltsv-label-test
+    import:           warnings
+    default-language: Haskell2010
+    type:             exitcode-stdio-1.0
+    hs-source-dirs:   test
+    main-is:          Main.hs
+    build-depends:
+        base ^>=4.17.2.1,
+        containers,
+        hs-ltsv-label
